@@ -3004,6 +3004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186208128}
   - component: {fileID: 1186208127}
+  - component: {fileID: 1186208129}
   m_Layer: 0
   m_Name: PlayerOneSpr
   m_TagString: Untagged
@@ -3073,6 +3074,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1186208129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186208126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dc951a7981f61447849727f01db06b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
 --- !u!1 &2064687928
 GameObject:
   m_ObjectHideFlags: 0
@@ -3083,6 +3097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2064687930}
   - component: {fileID: 2064687929}
+  - component: {fileID: 2064687931}
   m_Layer: 0
   m_Name: PlayerTwoSpr
   m_TagString: Untagged
@@ -3152,3 +3167,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &2064687931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064687928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dc951a7981f61447849727f01db06b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
