@@ -10,27 +10,32 @@ public class Player_Movement : MonoBehaviour
     void Update()
     {
 
-        //constant movement of the players vehicle.
-        movementSpeed += 0.1f * Time.deltaTime;
-        transform.position += transform.up * Time.deltaTime * movementSpeed;
-
-        //splits up the controls between player one and two.
-        if (gameObject.name.Equals("PlayerOneSpr"))
+        if (GameObject.Find("Manager").GetComponent<Manager>().gameStart)
         {
-            if (Input.GetKey(KeyCode.D))
-                RotateClockwise();
-            
-            if (Input.GetKey(KeyCode.A))
-                RotateCounterClockwise();
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.RightArrow))
-                RotateClockwise();
+            //constant movement of the players vehicle.
+            movementSpeed += 0.1f * Time.deltaTime;
+            transform.position += transform.up * Time.deltaTime * movementSpeed;
 
-            if (Input.GetKey(KeyCode.LeftArrow))
-                RotateCounterClockwise();
+            //splits up the controls between player one and two.
+            if (gameObject.name.Equals("PlayerOneSpr"))
+            {
+                if (Input.GetKey(KeyCode.D))
+                    RotateClockwise();
+
+                if (Input.GetKey(KeyCode.A))
+                    RotateCounterClockwise();
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.RightArrow))
+                    RotateClockwise();
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                    RotateCounterClockwise();
+            }
         }
+
+        
     }
 
     private void RotateClockwise()
