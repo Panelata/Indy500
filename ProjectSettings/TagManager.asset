@@ -7,6 +7,9 @@ TagManager:
   - QuitButton
   - Wall
   - MovingWall
+  - Lap
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
