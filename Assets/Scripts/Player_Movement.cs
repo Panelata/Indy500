@@ -6,6 +6,11 @@ public class Player_Movement : MonoBehaviour
 {
     public float movementSpeed = 1.0f;
 
+    void Start()
+    {
+        //gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -34,17 +39,21 @@ public class Player_Movement : MonoBehaviour
                     RotateCounterClockwise();
             }
         }
-
-        
     }
 
-    private void RotateClockwise()
+    void OnTriggerEnter(Collider col)
+    {
+        Debug.Log("hi");
+    }
+
+    void RotateClockwise()
     {
         transform.Rotate(0, 0, -150.0f * Time.deltaTime);
     }
 
-    private void RotateCounterClockwise()
+    void RotateCounterClockwise()
     {
         transform.Rotate(0, 0, 150.0f * Time.deltaTime);
     }
+    
 }

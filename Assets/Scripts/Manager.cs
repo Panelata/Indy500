@@ -10,7 +10,6 @@ public class Manager : MonoBehaviour
     void Start()
     {
         StartCoroutine(BeginCountdown());
-        Debug.Log("HELLO");
     }
 
     IEnumerator BeginCountdown()
