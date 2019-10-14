@@ -7,11 +7,11 @@ public class Player_Manager : MonoBehaviour
     public float movementSpeed = 1.0f;
     //Note: One lap will count as 2 in backend, therefore totalLapCount / 2 will be the actual number of laps
     public int currentLap = -2;
+    private bool hasBoost = false;
 
     // Update is called once per frame
     void Update()
     {
-
         if (GameObject.Find("Manager").GetComponent<Manager>().gameStart)
         {
             //constant movement of the players vehicle.
@@ -26,6 +26,13 @@ public class Player_Manager : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.A))
                     RotateCounterClockwise();
+
+                //Grants movement speed and removes the boost from the player.
+                if (Input.GetKey(KeyCode.W) && hasBoost)
+                {
+                    movementSpeed += 1;
+                    hasBoost = false;
+                }
             }
             else
             {
@@ -34,6 +41,12 @@ public class Player_Manager : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.LeftArrow))
                     RotateCounterClockwise();
+
+                if (Input.GetKey(KeyCode.UpArrow) && hasBoost)
+                {
+                    movementSpeed += 1;
+                    hasBoost = false;
+                }
             }
         }
     }
@@ -49,7 +62,12 @@ public class Player_Manager : MonoBehaviour
         if (col.gameObject.tag == "Lap")
         {
             currentLap += 2;
-            Debug.Log(gameObject.name + currentLap);
+            //Debug.Log(gameObject.name + currentLap);
+        }
+        if(col.gameObject.tag == "Boost")
+        {
+            Destroy(col.gameObject);
+            hasBoost = true;
         }
     }
 
