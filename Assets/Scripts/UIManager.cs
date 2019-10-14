@@ -11,6 +11,19 @@ public class UIManager : MonoBehaviour
         playerOne = GameObject.Find("PlayerOneSpr");
         playerTwo = GameObject.Find("PlayerTwoSpr");
     }
+
+    void Update()
+    {
+        if (playerOne.GetComponent<Player_Manager>().hasBoost)
+            GameObject.Find("Player1_Boost").GetComponent<Text>().text = "Boost Ready";
+        else
+            GameObject.Find("Player1_Boost").GetComponent<Text>().text = "No Boost";
+
+        if (playerTwo.GetComponent<Player_Manager>().hasBoost)
+            GameObject.Find("Player2_Boost").GetComponent<Text>().text = "Boost Ready";
+        else
+            GameObject.Find("Player2_Boost").GetComponent<Text>().text = "No Boost";
+    }
     
     //Updates the laps text in the canvas
     //Works by taking the players current lap counter in Player_manager and dividing it by 2, then adding 1 to get the correct lap count.

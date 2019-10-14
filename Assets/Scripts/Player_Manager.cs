@@ -7,7 +7,7 @@ public class Player_Manager : MonoBehaviour
     public float movementSpeed = 1.0f;
     //Note: One lap will count as 2 in backend, therefore totalLapCount / 2 will be the actual number of laps
     public int currentLap = -2;
-    private bool hasBoost = false;
+    public bool hasBoost = false;
 
     // Update is called once per frame
     void Update()
