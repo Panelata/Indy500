@@ -14,6 +14,7 @@ public class Manager : MonoBehaviour
     void Start()
     {
         StartCoroutine(BeginCountdown());
+        StartCoroutine(MusicCountdown());
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
     }
@@ -40,5 +41,11 @@ public class Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         gameStart = true;
+    }
+
+    IEnumerator MusicCountdown()
+    {
+        yield return new WaitForSeconds(4);
+        GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Play();
     }
 }

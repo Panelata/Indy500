@@ -59,6 +59,7 @@ public class Player_Manager : MonoBehaviour
         {
             movementSpeed = movementSpeed / 2.0f;
             transform.position -= transform.up * 0.05f;
+            GameObject.Find("Crash").GetComponent<AudioSource>().Play();
         }
         //When a player passes the start/end sprite, it will up the lap counter and update the UI.
         if (col.gameObject.tag == "Lap")
