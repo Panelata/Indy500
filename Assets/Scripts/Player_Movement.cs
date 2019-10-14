@@ -46,7 +46,7 @@ public class Player_Movement : MonoBehaviour
     {
         if(col.gameObject.tag == "Wall" || col.gameObject.tag == "MovingWall")
         {
-            movementSpeed = movementSpeed / 2;
+            movementSpeed = movementSpeed / 1.1f;
             transform.position -= transform.up * 0.05f;
         }
     }
