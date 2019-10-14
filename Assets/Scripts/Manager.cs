@@ -26,7 +26,6 @@ public class Manager : MonoBehaviour
         //Checks if the players have reached the lap amount and determines who the winner is.
         if (player1.GetComponent<Player_Manager>().currentLap == totalLapCount)
         {
-            Debug.Log("PLAYER 1 WINS");
             gameStart = false;
             GameObject.Find("Canvas").GetComponent<UIManager>().UpdateWinner(player1);
             StartCoroutine(Winner());
@@ -35,7 +34,6 @@ public class Manager : MonoBehaviour
         }
         if(player2.GetComponent<Player_Manager>().currentLap == totalLapCount)
         {
-            Debug.Log("PLAYER 2 WINS");
             gameStart = false;
             GameObject.Find("Canvas").GetComponent<UIManager>().UpdateWinner(player2);
             StartCoroutine(Winner());
