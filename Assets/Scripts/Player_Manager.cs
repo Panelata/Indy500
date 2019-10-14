@@ -51,18 +51,20 @@ public class Player_Manager : MonoBehaviour
         }
     }
 
-    //Detects when the player hits a wall, and resets the player to a position just before they hit the wall.
+    
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Wall" || col.gameObject.tag == "MovingWall")
+        //Detects when the player hits a wall, and resets the player to a position just before they hit the wall.
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "MovingWall")
         {
             movementSpeed = movementSpeed / 2.0f;
             transform.position -= transform.up * 0.05f;
         }
+        //When a player passes the start/end sprite, it will up the lap counter and update the UI.
         if (col.gameObject.tag == "Lap")
         {
             currentLap += 2;
-            //Debug.Log(gameObject.name + currentLap);
+            GameObject.Find("Canvas").GetComponent<UIManager>().UpdateLaps(gameObject);
         }
         if(col.gameObject.tag == "Boost")
         {

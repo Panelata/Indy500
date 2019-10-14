@@ -8,7 +8,7 @@ public class Manager : MonoBehaviour
 {
     public bool gameStart = false;
     //NOTE: To get actual number of laps, devide totalLapCount by 2.
-    public int totalLapCount = 6;
+    public int totalLapCount = 8;
     GameObject player1, player2;
 
     void Start()
@@ -31,6 +31,8 @@ public class Manager : MonoBehaviour
             Debug.Log("PLAYER 2 WINS");
             SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
+
+
     }
 
     //Waiting for the race to start. Will wait for three seconds.
