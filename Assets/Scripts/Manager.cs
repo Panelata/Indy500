@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
     //NOTE: To get actual number of laps, devide totalLapCount by 2.
     public int totalLapCount = 8;
     GameObject player1, player2;
+    bool waitWinner;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class Manager : MonoBehaviour
         StartCoroutine(MusicCountdown());
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
+        waitWinner = false;
     }
 
     void Update()
@@ -25,12 +27,20 @@ public class Manager : MonoBehaviour
         if (player1.GetComponent<Player_Manager>().currentLap == totalLapCount)
         {
             Debug.Log("PLAYER 1 WINS");
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            gameStart = false;
+            GameObject.Find("Canvas").GetComponent<UIManager>().UpdateWinner(player1);
+            StartCoroutine(Winner());
+            if(waitWinner)
+                SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
         if(player2.GetComponent<Player_Manager>().currentLap == totalLapCount)
         {
             Debug.Log("PLAYER 2 WINS");
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            gameStart = false;
+            GameObject.Find("Canvas").GetComponent<UIManager>().UpdateWinner(player2);
+            StartCoroutine(Winner());
+            if(waitWinner)
+                SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
 
 
@@ -47,5 +57,13 @@ public class Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Play();
+    }
+
+    IEnumerator Winner()
+    {
+        GameObject.Find("WinnerAudio").GetComponent<AudioSource>().volume = 0.25f;
+        GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Stop();
+        yield return new WaitForSeconds(5);
+        waitWinner = true;
     }
 }

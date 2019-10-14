@@ -34,4 +34,12 @@ public class UIManager : MonoBehaviour
         if (player.name == "PlayerTwoSpr")
             GameObject.Find("Player2_Lap").GetComponent<Text>().text = ((player.GetComponent<Player_Manager>().currentLap / 2) + 1).ToString();
     }
+
+    public void UpdateWinner(GameObject player)
+    {
+        if (player.name == "PlayerOneSpr")
+            GameObject.Find("WinnerText").GetComponent<Text>().text = "Player 1 Wins";
+        else
+            GameObject.Find("WinnerText").GetComponent<Text>().text = "Player 2 Wins";
+    }
 }
