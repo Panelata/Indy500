@@ -41,15 +41,18 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
+    //Detects when the player hits a wall, and resets the player to a position just before they hit the wall.
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Wall")
+        if(col.gameObject.tag == "Wall" || col.gameObject.tag == "MovingWall")
         {
             movementSpeed = movementSpeed / 2;
             transform.position -= transform.up;
         }
     }
 
+
+    //Rotates the player
     void RotateClockwise()
     {
         transform.Rotate(0, 0, -150.0f * Time.deltaTime);
