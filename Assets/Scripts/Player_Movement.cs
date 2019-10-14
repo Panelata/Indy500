@@ -43,7 +43,11 @@ public class Player_Movement : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("hi");
+        if(col.gameObject.tag == "Wall")
+        {
+            movementSpeed = movementSpeed / 2;
+            transform.position -= transform.up;
+        }
     }
 
     void RotateClockwise()
