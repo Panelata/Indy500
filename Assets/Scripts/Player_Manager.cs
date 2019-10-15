@@ -8,8 +8,7 @@ public class Player_Manager : MonoBehaviour
     //Note: One lap will count as 2 in backend, therefore totalLapCount / 2 will be the actual number of laps
     public int currentLap = -2;
     public bool hasBoost = false;
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (GameObject.Find("Manager").GetComponent<Manager>().gameStart)
@@ -67,6 +66,8 @@ public class Player_Manager : MonoBehaviour
             currentLap += 2;
             GameObject.Find("Canvas").GetComponent<UIManager>().UpdateLaps(gameObject);
         }
+        //When the player collides with a boost, it will destroy the boost and set hasBoost to true.
+        //hasboost controls whether the player has the ability to speed up or not.
         if(col.gameObject.tag == "Boost")
         {
             Destroy(col.gameObject);

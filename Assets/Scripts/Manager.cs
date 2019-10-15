@@ -24,6 +24,7 @@ public class Manager : MonoBehaviour
     void Update()
     {
         //Checks if the players have reached the lap amount and determines who the winner is.
+        //gameStart is to disable the player controls and the movement.
         if (player1.GetComponent<Player_Manager>().currentLap == totalLapCount)
         {
             gameStart = false;
@@ -51,12 +52,15 @@ public class Manager : MonoBehaviour
         gameStart = true;
     }
 
+    //Waits for 4 seconds before the background music begins, to allow the countdown sound to finish first
     IEnumerator MusicCountdown()
     {
         yield return new WaitForSeconds(4);
         GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Play();
     }
 
+    //Mutes the background music and ups the volume for the winner music.
+    //Sets the canvas text to display who the winner was and waits for 5 seconds before returning to the main menu.
     IEnumerator Winner()
     {
         GameObject.Find("WinnerAudio").GetComponent<AudioSource>().volume = 0.25f;

@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
         playerTwo = GameObject.Find("PlayerTwoSpr");
     }
 
+    //Checks if the players currently have a boost they can use by checking if hasboost == true
+    //If it is true then the canvas will display boost ready and if not then no boost.
     void Update()
     {
         if (playerOne.GetComponent<Player_Manager>().hasBoost)
@@ -35,6 +37,7 @@ public class UIManager : MonoBehaviour
             GameObject.Find("Player2_Lap").GetComponent<Text>().text = ((player.GetComponent<Player_Manager>().currentLap / 2) + 1).ToString();
     }
 
+    //Updates the canvas to display who the winner of the race was via the passed parameter.
     public void UpdateWinner(GameObject player)
     {
         if (player.name == "PlayerOneSpr")

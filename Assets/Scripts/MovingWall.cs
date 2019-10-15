@@ -6,11 +6,13 @@ public class MovingWall : MonoBehaviour
 {
     public float wallSpeed = 0.5f;
 
+    //Moves the wall
     void Update()
     {
         transform.position += transform.up * Time.deltaTime * wallSpeed;
     }
 
+    //When the moving wall detects another wall, it will rotate 180 degrees and reverse direction
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Wall")
